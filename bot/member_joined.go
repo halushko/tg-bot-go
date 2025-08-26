@@ -13,7 +13,7 @@ func (b *botImpl) StartHandleMemberJoined() {
 		members := c.Message().UsersJoined
 
 		for _, u := range members {
-			nats.PublishTgTextMessage(TelegramMemberJoinedQueue, chatID, strconv.FormatInt(u.ID, 10))
+			nats.PublishTgCommandMessage(TelegramMemberJoinedQueue, chatID, strconv.FormatInt(u.ID, 10), u.Username)
 		}
 		return nil
 	})
