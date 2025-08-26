@@ -7,6 +7,7 @@ import (
 const TelegramInputTextQueue = "TELEGRAM_INPUT_TEXT_QUEUE"
 const TelegramOutputTextQueue = "TELEGRAM_OUTPUT_TEXT_QUEUE"
 const TelegramInputFileQueue = "TELEGRAM_INPUT_FILE_QUEUE"
+const TelegramMemberJoinedQueue = "TELEGRAM_MEMBER_JOINED_QUEUE"
 
 const envBotToken = "BOT_TOKEN"
 
@@ -16,6 +17,7 @@ type Bot interface {
 	StartHandleTextMessages()
 	StartHandleDocumentMessages()
 	StartSendTextMessages()
+	StartHandleMemberJoined()
 }
 
 type botImpl struct {
